@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class gametimer : MonoBehaviour {
 
@@ -11,6 +12,10 @@ public class gametimer : MonoBehaviour {
 	public float timercounterdown = 0;
 	//chosen difficulty
 	public int chosendiff = 0;
+	//holding off timer
+	public bool timerhold = false;
+	//timer game object
+	public GameObject timerobj;
 
 	//easy difficulty
 	public float easytime = 0;
@@ -41,7 +46,21 @@ public class gametimer : MonoBehaviour {
 		}
 
 		timeruplimit = timercounterdown;
+ 
+		StartCoroutine(goingup());
 	}
+
+	IEnumerator goingup()
+	{
+		if(!timerhold)
+		{
+			yield return new WaitForSeconds(1f);
+
+
+		}
+	}
+
+
 	
 	// Update is called once per frame
 	void Update () {

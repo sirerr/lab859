@@ -34,20 +34,28 @@ public class Playercontrol : MonoBehaviour {
 	void Start () {
 		playertrans = transform;
 
-
+		if(Application.platform ==RuntimePlatform.WindowsEditor)
+		{
+			centeranchor.transform.GetComponent<MouseLook>().enabled = true;
+		}
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		//raycast info
+		Vector3 forwardlook = centeranchor.transform.forward;
 		RaycastHit playerlook;
 
 		usermoveinput = Input.GetMouseButton (0);
 		userbackbutton = Input.GetMouseButton(1);
 
-		Debug.DrawRay(centeranchor.transform.position,centeranchor.transform.TransformDirection(Vector3.forward * raycastdistance), Color.red, .1f);
+		Debug.DrawRay(centeranchor.transform.position,forwardlook * raycastdistance, Color.red, .1f);
 
-		Physics.Raycast(centeranchor.transform.position,centeranchor.transform.TransformDirection(Vector3.forward * raycastdistance), out playerlook,interactlayer);
+		Physics.Raycast(centeranchor.transform.position,forwardlook *raycastdistance, out playerlook,interactlayer);
+
+		print (forwardlook);
 
 		if (playerlook.collider == null) 
 		{
@@ -75,7 +83,7 @@ public class Playercontrol : MonoBehaviour {
 		case 10:
 			if (usermoveinput) {
 			
-				transform.Translate(Vector3.forward * playerspeed* Time.deltaTime,Space.Self);
+				transform.Translate(centeranchor.transform.forward * playerspeed* Time.deltaTime);
 			}
 		break;
 		//looking at collectable

@@ -55,7 +55,7 @@ public class Playercontrol : MonoBehaviour {
 
 		Physics.Raycast(centeranchor.transform.position,forwardlook *raycastdistance, out playerlook,interactlayer);
 
-		print (forwardlook);
+		//print (forwardlook);
 
 		if (playerlook.collider == null) 
 		{
@@ -82,8 +82,13 @@ public class Playercontrol : MonoBehaviour {
 		break;
 		case 10:
 			if (usermoveinput) {
-			
-				transform.Translate(centeranchor.transform.forward * playerspeed* Time.deltaTime);
+				Vector3 move = forwardlook * playerspeed * Time.deltaTime;
+			//	Debug.Log(transform.position);
+			//	Debug.Log(move);
+
+				//transform.Translate(move.x, move.y, move.z);
+				transform.position += move;
+			//	Debug.Log(transform.position);
 			}
 		break;
 		//looking at collectable

@@ -10,12 +10,16 @@ public class gametimer : MonoBehaviour {
 	public float timeruplimit = 0;
 	// count down
 	public float timercounterdown = 0;
+	//minutes and hours
+	public float timemins =0;
+	public float timesecs =0;
+
 	//chosen difficulty
 	public int chosendiff = 0;
 	//holding off timer
 	public bool timerhold = false;
 	//timer game object
-	public GameObject timerobj;
+//	public Text timertext;
 
 	//easy difficulty
 	public float easytime = 0;
@@ -26,8 +30,9 @@ public class gametimer : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 
+	//	timertext = transform.GetComponent<Text>();
 	
 		switch (chosendiff)
 		{
@@ -46,7 +51,14 @@ public class gametimer : MonoBehaviour {
 		}
 
 		timeruplimit = timercounterdown;
- 
+
+		timemins =  Mathf.Abs(timercounterdown/60f);
+	//	timertext.text = timemins.ToString("f0")+":00";
+
+	}
+
+	void Start()
+	{
 		StartCoroutine(goingup());
 	}
 
@@ -54,12 +66,38 @@ public class gametimer : MonoBehaviour {
 	{
 		if(!timerhold)
 		{
+
+			timercounterdown-=1f;
+			timercounterup+=1f;
+	
+			if(timesecs == 0f)
+			{
+				timemins-=1;
+				timesecs = 59f;
+			}else
+			{
+				timesecs-=1;
+			}
+
 			yield return new WaitForSeconds(1f);
 
-
+//			if(timesecs<10&&timesecs>=0)
+//			{
+//				timertext.text = timemins.ToString("f0") +":0"+timesecs;
+//			}
+//			else
+//			{
+//				timertext.text = timemins.ToString("f0") +":"+timesecs;
+//			}
 		}
+		quickloop();
+
 	}
 
+public void quickloop()
+	{
+		StartCoroutine(goingup());
+	}
 
 	
 	// Update is called once per frame

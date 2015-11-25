@@ -34,9 +34,9 @@ public class Playercontrol : MonoBehaviour {
 	void Start () {
 		playertrans = transform;
 
-		if(Application.platform ==RuntimePlatform.WindowsEditor)
+		if(Application.platform !=RuntimePlatform.WindowsEditor)
 		{
-			centeranchor.transform.GetComponent<MouseLook>().enabled = true;
+			centeranchor.transform.GetComponent<MouseLook>().enabled = false;
 		}
 
 	}

@@ -89,6 +89,9 @@ public class gametimer : MonoBehaviour {
 //			{
 //				timertext.text = timemins.ToString("f0") +":"+timesecs;
 //			}
+		}else
+		{
+			yield return new WaitForSeconds(.5f);
 		}
 		quickloop();
 
@@ -99,9 +102,5 @@ public void quickloop()
 		StartCoroutine(goingup());
 	}
 
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
 }

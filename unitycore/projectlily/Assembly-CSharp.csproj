@@ -86,9 +86,14 @@
      <Compile Include="Assets\Scripts\gametimer.cs" />
      <Compile Include="Assets\Scripts\playerstamina.cs" />
      <Compile Include="Assets\Scripts\timerref.cs" />
+     <None Include="Assets\Imports\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
+     <None Include="Assets\Imports\Shaders\UI-OptionalZTest.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />
+     <None Include="Assets\Imports\Shaders\UI-OptionalZTestFont.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\Unlit Crosshair.shader" />
      <None Include="Assets\OVR\Moonlight\Resources\Unlit Transparent Color.shader" />
+     <None Include="Assets\Imports\Shaders\Mobile-Particle-Alpha-AfterTrans.shader" />
+     <None Include="Assets\Imports\Shaders\Particle Alpha Blend-AfterTrans.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity5_2_2_p2/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

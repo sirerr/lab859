@@ -41,8 +41,8 @@ public class Playercontrol : MonoBehaviour {
 
 
 	//test variables
-	public PointerEventData ped = new PointerEventData(EventSystem.current);
-	public	List<RaycastResult> hits = new List<RaycastResult>();
+//	public PointerEventData ped = new PointerEventData(EventSystem.current);
+//	public	List<RaycastResult> hits = new List<RaycastResult>();
 	//test variables
 
 	void Awake()
@@ -50,9 +50,26 @@ public class Playercontrol : MonoBehaviour {
 		gamecontrolman = GameObject.FindGameObjectWithTag("GameController");
 		playerstaminaref = gamecontrolman.GetComponent<playerstamina>();
 
-		GameObject.Find("EventSystem").GetComponent<OVRInputModule>().rayTransform = transform;
+	//	GameObject.Find("EventSystem").GetComponent<OVRInputModule>().rayTransform = transform;
 	}
 
+	public void flash()
+	{
+		print("hit enemy with flash");
+
+	}
+
+	public void fire()
+	{
+		print("hit enemy with fire");
+
+	}
+
+	public void bigboom()
+	{
+		print("hit enemy with boom");
+
+	}
 
 
 
@@ -97,8 +114,9 @@ public class Playercontrol : MonoBehaviour {
 			playerstate =10;
 		}
 
-	
+		
 		objectdistance = Vector3.Distance(playerlook.transform.position,transform.position);
+	//	print (objectdistance);
 
 		switch (playerstate)
 		{
@@ -108,11 +126,8 @@ public class Playercontrol : MonoBehaviour {
 		case 10:
 			if (usermoveinput) {
 				Vector3 move = forwardlook * playerspeed * Time.deltaTime;
-			
-
-				//transform.Translate(move.x, move.y, move.z);
 				transform.position += move;
-			//	Debug.Log(transform.position);
+
 			}
 			if(enemyobj!=null)
 			{
@@ -123,9 +138,13 @@ public class Playercontrol : MonoBehaviour {
 		//looking at collectable
 		case 20:
 		//	print ("looking at collectable");
-			if(usermoveinput && objectdistance>2)
+			if(usermoveinput && objectdistance<2)
 			{
 				//start hand animation and stop clock
+			}else if(usermoveinput)
+			{
+				Vector3 move = forwardlook * playerspeed * Time.deltaTime;
+				transform.position += move;
 			}
 		break;
 		//looking at enemy
@@ -135,23 +154,23 @@ public class Playercontrol : MonoBehaviour {
 			playerlook.transform.SendMessage("enablecanvas");
 
 			//test code
-			ped.position = Camera.main.WorldToScreenPoint(playerlook.point);
-			EventSystem.current.RaycastAll(ped,hits);
-			GameObject currentbutton;
-
-			foreach(RaycastResult result in hits)
-			{
-
-				if(result.gameObject.tag == "ebutton")
-				{
-				//previousbutton = currentbutton;
-				//	ExecuteEvents.Execute<IPointerEnterHandler>(currentbutton,ped,ExecuteEvents.pointerEnterHandler);
-				//	print(result);
-				
-				//	ExecuteEvents.Execute<IPointerExitHandler>(previousbutton,ped,ExecuteEvents.pointerExitHandler);
-				}
-
-			}
+//			ped.position = Camera.main.WorldToScreenPoint(playerlook.point);
+//			EventSystem.current.RaycastAll(ped,hits);
+//			GameObject currentbutton;
+//
+//			foreach(RaycastResult result in hits)
+//			{
+//
+//				if(result.gameObject.tag == "ebutton")
+//				{
+//				//previousbutton = currentbutton;
+//				//	ExecuteEvents.Execute<IPointerEnterHandler>(currentbutton,ped,ExecuteEvents.pointerEnterHandler);
+//				//	print(result);
+//				
+//					ExecuteEvents.Execute<IPointerExitHandler>(previousbutton,ped,ExecuteEvents.pointerExitHandler);
+//				}
+//
+//			}
 	
 
 

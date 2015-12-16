@@ -84,6 +84,7 @@
      <Compile Include="Assets\Scripts\Playercontrol.cs" />
      <Compile Include="Assets\Scripts\enemyui.cs" />
      <Compile Include="Assets\Scripts\gametimer.cs" />
+     <Compile Include="Assets\Scripts\interactobject.cs" />
      <Compile Include="Assets\Scripts\playerstamina.cs" />
      <Compile Include="Assets\Scripts\timerref.cs" />
      <None Include="Assets\Imports\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />

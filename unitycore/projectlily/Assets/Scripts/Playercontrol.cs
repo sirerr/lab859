@@ -39,6 +39,9 @@ public class Playercontrol : MonoBehaviour {
 	//ref playerstamina
 	public playerstamina playerstaminaref;
 
+	//reference to camera rig gameobject
+	public GameObject camerarig;
+
 
 	//test variables
 //	public PointerEventData ped = new PointerEventData(EventSystem.current);
@@ -49,6 +52,8 @@ public class Playercontrol : MonoBehaviour {
 	{
 		gamecontrolman = GameObject.FindGameObjectWithTag("GameController");
 		playerstaminaref = gamecontrolman.GetComponent<playerstamina>();
+
+		camerarig = transform.GetChild(1).gameObject;
 
 	//	GameObject.Find("EventSystem").GetComponent<OVRInputModule>().rayTransform = transform;
 	}
@@ -79,6 +84,7 @@ public class Playercontrol : MonoBehaviour {
 		if(Application.platform !=RuntimePlatform.WindowsEditor)
 		{
 			centeranchor.transform.GetComponent<MouseLook>().enabled = false;
+			camerarig.transform.GetComponent<MouseLook>().enabled = false;
 		}
 
 	}
@@ -97,7 +103,7 @@ public class Playercontrol : MonoBehaviour {
 
 		Physics.Raycast(centeranchor.transform.position,forwardlook *raycastdistance, out playerlook,interactlayer);
 
-	
+
 
 		if (playerlook.collider == null) 
 		{
@@ -138,11 +144,14 @@ public class Playercontrol : MonoBehaviour {
 		//looking at collectable
 		case 20:
 		//	print ("looking at collectable");
+			GameObject interactible = playerlook.transform.gameObject;
 			if(usermoveinput && objectdistance<2)
 			{
+				interactible.transform.SendMessage("playerinteract");
 				//start hand animation and stop clock
 			}else if(usermoveinput)
 			{
+				print (playerlook.transform.gameObject);
 				Vector3 move = forwardlook * playerspeed * Time.deltaTime;
 				transform.position += move;
 			}

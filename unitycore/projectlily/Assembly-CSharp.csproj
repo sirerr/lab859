@@ -83,13 +83,12 @@
      <Compile Include="Assets\Scripts\LookInputModule.cs" />
      <Compile Include="Assets\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Scripts\Playercontrol.cs" />
+     <Compile Include="Assets\Scripts\cursoraction.cs" />
      <Compile Include="Assets\Scripts\enemyui.cs" />
      <Compile Include="Assets\Scripts\gametimer.cs" />
      <Compile Include="Assets\Scripts\interactobject.cs" />
      <Compile Include="Assets\Scripts\playerstamina.cs" />
      <Compile Include="Assets\Scripts\timerref.cs" />
-     <Compile Include="Assets\cursoraction.cs" />
-     <None Include="Assets\cursorshader.shader" />
      <None Include="Assets\Imports\Shaders\Particle-Alpha-Premultiply-AfterTrans.shader" />
      <None Include="Assets\Imports\Shaders\UI-OptionalZTest.shader" />
      <None Include="Assets\OVR\Moonlight\Shaders\OVRColorRampAlpha.shader" />

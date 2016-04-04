@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{D24F0DD7-4FF2-C3AC-F846-C4F8647D13EC}") = "projectlily", "Assembly-CSharp-firstpass.csproj", "{A7514A79-8029-50A5-8F1F-E436E78667B1}"
+EndProject
 Project("{D24F0DD7-4FF2-C3AC-F846-C4F8647D13EC}") = "projectlily", "Assembly-CSharp.csproj", "{83A3D013-EE68-ACCD-AFA7-9E7126C208FF}"
 EndProject
 Project("{D24F0DD7-4FF2-C3AC-F846-C4F8647D13EC}") = "projectlily", "Assembly-CSharp-Editor.csproj", "{64C987CF-F0BF-EBDC-9D8F-315927AB30F7}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7514A79-8029-50A5-8F1F-E436E78667B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7514A79-8029-50A5-8F1F-E436E78667B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7514A79-8029-50A5-8F1F-E436E78667B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7514A79-8029-50A5-8F1F-E436E78667B1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{83A3D013-EE68-ACCD-AFA7-9E7126C208FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83A3D013-EE68-ACCD-AFA7-9E7126C208FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83A3D013-EE68-ACCD-AFA7-9E7126C208FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
